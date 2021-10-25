@@ -3,17 +3,17 @@ package com.lronnobank.qpplugin;
 import javax.inject.Inject;
 
 import net.runelite.api.ChatMessageType;
+import net.runelite.api.Client;
 import net.runelite.api.events.ChatMessage;
-import net.runelite.client.chat.ChatMessageBuilder;
-import net.runelite.client.chat.ChatMessageManager;
-import net.runelite.client.chat.QueuedMessage;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.util.Text;
 
 public class qpplugin {
     // uim img 3
-    @Inject
-	private ChatMessageManager chatMessageManager;
+	@Inject
+	private Client client;
+    // @Inject
+	// private ChatMessageManager chatMessageManager;
 
     private String[] chars = new String[] {
         ".:|!iIl ",//3
@@ -89,8 +89,10 @@ public void onChatMessage(ChatMessage event){
             pixels = 4;
             msg = msg.substring(msg.indexOf("q p") + 3);
         }
-        final String message = new ChatMessageBuilder().append(m).build();
-        chatMessageManager
-                .queue(QueuedMessage.builder().type(ChatMessageType.TRADE).runeLiteFormattedMessage(message).build());
+        
+			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", m, null);
+        // final String message = new ChatMessageBuilder().append(m).build();
+        // chatMessageManager
+        //         .queue(QueuedMessage.builder().type(ChatMessageType.TRADE).runeLiteFormattedMessage(message).build());
     }
 }
