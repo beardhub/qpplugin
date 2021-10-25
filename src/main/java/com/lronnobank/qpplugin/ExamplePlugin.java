@@ -130,7 +130,7 @@ public void onChatMessage(ChatMessage event){
      //   if (cc && clanManager.getRank("lronNoBank") != ClanMemberRank.UNRANKED) {
       //      pixels -= 14;
       //  }
-        String m = "<img=3>lronNoBank: ";// + (cc ? "/" : "");
+        String m = "@lronNoBank: ";// + (cc ? "/" : "");
         while (msg.indexOf("q p") != -1) {
             pixels += stringToPixel(msg.substring(0, msg.indexOf("q p")));
             pixels += 4;// line up w with q
