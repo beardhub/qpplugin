@@ -1,2 +1,2 @@
-# Example
-An example greeter plugin
+# qpplugin
+a plugin to W some q ps
