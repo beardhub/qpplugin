@@ -2,17 +2,18 @@ package com.lronnobank.qpplugin;
 
 import com.google.inject.Provides;
 
-import jogamp.common.Debug;
 
 import javax.inject.Inject;
 
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.client.chat.ChatMessageBuilder;
+import net.runelite.client.chat.ChatMessageManager;
+import net.runelite.client.chat.QueuedMessage;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
@@ -30,6 +31,8 @@ public class ExamplePlugin extends Plugin
 
 	@Inject
 	private ExampleConfig config;
+    @Inject
+	private ChatMessageManager chatMessageManager;
 
 	@Override
 	protected void startUp() throws Exception
@@ -136,8 +139,9 @@ public void onChatMessage(ChatMessage event){
         
 		System.out.println(m);
 			// client.addChatMessage(ChatMessageType.TRADE, "", m, null);
-        // final String message = new ChatMessageBuilder().append(m).build();
-        // chatMessageManager
-        //         .queue(QueuedMessage.builder().type(ChatMessageType.TRADE).runeLiteFormattedMessage(message).build());
+         final String message = new ChatMessageBuilder().append(m).build();
+         chatMessageManager
+		 //.queue(QueuedMessage.builder().type(ChatMessageType.TRADE).runeLiteFormattedMessage(m).build());
+                .queue(QueuedMessage.builder().type(ChatMessageType.TRADE).runeLiteFormattedMessage(message).build());
     }
 }
