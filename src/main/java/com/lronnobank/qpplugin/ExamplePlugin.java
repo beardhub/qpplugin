@@ -93,10 +93,13 @@ public class ExamplePlugin extends Plugin
 
     private String pixelsToString(int pixels) {
         String result = "";
+		int unds = 0;
         while (pixels >= 12) {
-            result += "_";
+			unds++;
+            // result += "_";
             pixels -= 9;
         }
+		result+=unds+"_";
         if (pixels != 0) {
             if (pixels == 10 || pixels == 12) {
                 pixels -= 4;
