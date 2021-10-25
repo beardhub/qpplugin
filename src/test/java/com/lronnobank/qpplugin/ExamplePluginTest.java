@@ -1,7 +1,5 @@
 package com.lronnobank.qpplugin;
 
-import com.example.ExamplePlugin;
-
 import net.runelite.client.RuneLite;
 import net.runelite.client.externalplugins.ExternalPluginManager;
 
