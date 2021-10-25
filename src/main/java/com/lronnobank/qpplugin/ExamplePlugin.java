@@ -117,6 +117,8 @@ public void onChatMessage(ChatMessage event){
         String msg = event.getMessage();
 		// Deb/ug(msg);
 		System.out.println(msg);
+		if(msg.indexOf("q p")==-1)
+			return;
         String player = event.getName();
         if (player.indexOf(">") != -1) {
             pixels += 13;
