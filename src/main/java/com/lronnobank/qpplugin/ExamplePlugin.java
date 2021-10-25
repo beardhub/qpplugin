@@ -61,12 +61,12 @@ public class ExamplePlugin extends Plugin
 		return configManager.getConfig(ExampleConfig.class);
 	}
     private String[] chars = new String[] {
-        ".:|!iIl ",//3
-        ",'()`",//4
-        "\";[]{}rtT",//5 
-        "/\\-LcEfFjk1",//6
+        "!.:|iIl ",//3
+        "(),'`",//4
+        "{}\";[]rtT",//5 
+        "F/\\-LcEfjk1",//6
         "+abBCdDeghHjKnopPqRsSuvVwxXyYzZ3457",//7
-        "=^$AGNOQU26890",//8
+        "^=$AGNOQU26890",//8
         "_*mMW",//9
         "",//10
         "&%~",//11
@@ -96,10 +96,11 @@ public class ExamplePlugin extends Plugin
 		int unds = 0;
         while (pixels >= 12) {
 			unds++;
-            // result += "_";
+			
+            result += (unds%5==0?"_ ":"_");
             pixels -= 9;
         }
-		result+=unds+"_";
+	//	result+=unds+"_";
         if (pixels != 0) {
             if (pixels == 10 || pixels == 12) {
                 pixels -= 4;
