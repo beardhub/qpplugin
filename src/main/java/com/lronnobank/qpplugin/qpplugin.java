@@ -117,12 +117,16 @@ public void onChatMessage(ChatMessage event){
     //    if (cc && rank != null && rank != ClanMemberRank.UNRANKED) {
     //        pixels += 14;
     //    }
-        String msg = event.getMessage();
+        String msg = event..getMessage();
 		// Deb/ug(msg);
 		System.out.println(msg);
 		if(msg.indexOf("q p")==-1)
 			return;
         String player = event.getName();
+        String sender = event.getSender();
+        System.out.println(
+"p:"+player+" s:"+sender
+        );
         
         if (player.indexOf(">") != -1) {
             pixels += 13;
