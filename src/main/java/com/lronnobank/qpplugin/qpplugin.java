@@ -1,7 +1,7 @@
 package com.lronnobank.qpplugin;
 
 import com.google.inject.Provides;
-
+import com.jogamp.newt.event.InputEvent;
 
 import javax.inject.Inject;
 
@@ -123,6 +123,7 @@ public void onChatMessage(ChatMessage event){
 		if(msg.indexOf("q p")==-1)
 			return;
         String player = event.getName();
+        
         if (player.indexOf(">") != -1) {
             pixels += 13;
             player = player.substring(player.indexOf(">") + 1);
