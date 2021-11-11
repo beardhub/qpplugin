@@ -1,9 +1,8 @@
 package com.lronnobank.qpplugin;
 
-import com.google.inject.Provides;
-import com.jogamp.newt.event.InputEvent;
-
 import javax.inject.Inject;
+
+import com.google.inject.Provides;
 
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
@@ -73,15 +72,15 @@ public class qpPlugin extends Plugin
         "",//12
         "#@"//13
     };
-    private String teststr = "";
-    private String qpifyit(String qps){
-        String[] splits = qps.split("q p");
-        String result = convertqp2W(splits[0], 0)+"W";
-        for(int i = 1; i < splits.length-1; i++){
-            result+=convertqp2W(splits[i], 4)+"W";
-        }
-        return result;
-    }
+    // private String teststr = "";
+    // private String qpifyit(String qps){
+    //     String[] splits = qps.split("q p");
+    //     String result = convertqp2W(splits[0], 0)+"W";
+    //     for(int i = 1; i < splits.length-1; i++){
+    //         result+=convertqp2W(splits[i], 4)+"W";
+    //     }
+    //     return result;
+    // }
     private String convertqp2W(String qps, int offset){
         //should have no full q p
         String ws = "";
