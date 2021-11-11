@@ -37,6 +37,7 @@ public class qpPlugin extends Plugin
 	protected void startUp() throws Exception
 	{
 	///	log.info("Example started!");
+        
 	}
 
 	@Override
@@ -72,7 +73,28 @@ public class qpPlugin extends Plugin
         "",//12
         "#@"//13
     };
-
+    private String teststr = "";
+    private String qpifyit(String qps){
+        String[] splits = qps.split("q p");
+        String result = convertqp2W(splits[0], 0)+"W";
+        for(int i = 1; i < splits.length-1; i++){
+            result+=convertqp2W(splits[i], 4)+"W";
+        }
+        return result;
+    }
+    private String convertqp2W(String qps, int offset){
+        //should have no full q p
+        String ws = "";
+        int pixelcount = 4+offset;//offset for W at beginning, offset is if its after previous 
+        for(int i = 0;i < qps.length(); i++){
+            pixelcount+=charToPixel(qps.charAt(i));
+            while(pixelcount>9){
+                ws+="_";
+                pixelcount-=9;
+            }
+        }
+        return ws;
+    }
     private int stringToPixel(String s) {
         int res = 0;
         for (int i = 0; i < s.length(); i++) {
@@ -124,9 +146,8 @@ public void onChatMessage(ChatMessage event){
 			return;
         String player = event.getName();
         String sender = event.getSender();
-        System.out.println(
-"p:"+player+" s:"+sender
-        );
+        
+        System.out.println("p:"+player+" s:"+sender);
         
         if (player.indexOf(">") != -1) {
             pixels += 13;
@@ -142,6 +163,7 @@ public void onChatMessage(ChatMessage event){
       //  }
         String m = "";// + (cc ? "/" : "");
         while (msg.indexOf("q p") != -1) {
+            
             pixels += stringToPixel(msg.substring(0, msg.indexOf("q p")));
             pixels += 4;// line up w with q
             m += pixelsToString(pixels) + "W";
