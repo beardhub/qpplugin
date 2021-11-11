@@ -81,19 +81,19 @@ public class qpPlugin extends Plugin
     //     }
     //     return result;
     // }
-    private String convertqp2W(String qps, int offset){
-        //should have no full q p
-        String ws = "";
-        int pixelcount = 4+offset;//offset for W at beginning, offset is if its after previous 
-        for(int i = 0;i < qps.length(); i++){
-            pixelcount+=charToPixel(qps.charAt(i));
-            while(pixelcount>9){
-                ws+="_";
-                pixelcount-=9;
-            }
-        }
-        return ws;
-    }
+    // private String convertqp2W(String qps, int offset){
+    //     //should have no full q p
+    //     String ws = "";
+    //     int pixelcount = 4+offset;//offset for W at beginning, offset is if its after previous 
+    //     for(int i = 0;i < qps.length(); i++){
+    //         pixelcount+=charToPixel(qps.charAt(i));
+    //         while(pixelcount>9){
+    //             ws+="_";
+    //             pixelcount-=9;
+    //         }
+    //     }
+    //     return ws;
+    // }
     private int stringToPixel(String s) {
         int res = 0;
         for (int i = 0; i < s.length(); i++) {
